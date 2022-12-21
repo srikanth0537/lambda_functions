@@ -3,12 +3,21 @@
 import boto3
 import json
 
-ec2 = boto3.client('ec2')
 
 def lambda_handler (event, context):
 
+# To start the instances
+    ec2 = boto3.client('ec2')
     response = ec2.start_instances(
     InstanceIds=[
         'strings',
     ]
+    )
+
+# To stop the instances
+    ec2 = boto3.client('ec2')
+    response = ec2.stop_instances(
+    InstanceIds =[
+        'i-02e7154daa6e43c61'
+        ]
     )
